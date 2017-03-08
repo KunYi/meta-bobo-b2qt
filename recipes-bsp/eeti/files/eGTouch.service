@@ -1,0 +1,11 @@
+[Unit]
+Description=eGalaxy user daemon
+After=systemd-user-sessions.service
+
+[Service]
+ExecStart=/usr/bin/eGTouchD
+Type=forking
+
+[Install]
+WantedBy=multi-user.target
+

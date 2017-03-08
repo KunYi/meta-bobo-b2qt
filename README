@@ -1,0 +1,41 @@
+
+#########################################################################################
+# OpenEmbedded/Yocto meta layer for BoBo9/BoBo12 on Boot2Qt testing
+#########################################################################################
+
+This layer provide Bobo9/12 Board on Boot to Qt embedded linux recipes.
+
+This layer depends on:
+
+URI: https://github.com/UBIQCONN/meta-boot2qt.git
+branch: krogoth
+revision:9c00d8e96702157cdebab6c31aeab541baced483
+
+
+#########################################################################################
+# How to use this layer
+#########################################################################################
+1. first to clone meta-boot2qt layer
+
+   git clone https://github.com/UBIQCONN/meta-boot2qt.git
+   cd meta-boot2qt
+   git checkout 9c00d8e96702157cdebab6c31aeab541baced483 
+
+2. prepare repo and manifests
+
+   b2qt-init-build-env init --device imx6dlbobo9
+
+3. prepare build enviroments
+
+   export MACHINE=imx6dlbobo9
+   source ./setup-environment.sh
+
+4. run bitbake to ingition build process
+
+   bitbake b2qt-embedded-qt5-image # build device image
+   or
+   bitbake meta-toolchain-b2qt-embedded-qt5-sdk # build toolchain & sdk
+
+ref.
+  http://doc.qt.io/QtForDeviceCreation/qtee-custom-embedded-linux-image.html
+
